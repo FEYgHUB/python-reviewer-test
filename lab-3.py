@@ -1,6 +1,5 @@
 #Make sure to update the <FMI1> with your bucket
 
-
 import subprocess
 import sys
 import boto3
@@ -9,7 +8,6 @@ import datetime
 s3 = boto3.client('s3')
 
 def main(argv):
-
     cmd = determine_command(int(sys.argv[1]))
     log_file_name = datetime.datetime.now(datetime.timezone.utc).strftime("%m_%d_%Y") + "_logfile"
     kickoff_subprocess(cmd, log_file_name)
@@ -52,4 +50,4 @@ def upload_output_to_S3(log_file_name):
         file.close()
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    main(sys.argv[1:])
